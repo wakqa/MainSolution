@@ -1,0 +1,117 @@
+﻿{
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"Employee": {
+				"panelColor": "#D7E3BC",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 25,
+						"Y": 20
+					},
+					"pathVisible": true
+				}
+			},
+			"Enterprise": {
+				"panelColor": "#B2A2C7",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 456,
+						"Y": 56
+					},
+					"pathVisible": true
+				}
+			}
+		},
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 0,
+			"workspaceTop": 0
+		}
+	},
+	"dataClasses": [
+		{
+			"collectionName": "EmployeeCollection",
+			"className": "Employee",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"type": "long",
+					"autosequence": "true",
+					"unique": "true",
+					"primKey": "true"
+				},
+				{
+					"name": "firstName",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "lastName",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "age",
+					"scope": "public",
+					"type": "number",
+					"kind": "storage"
+				},
+				{
+					"name": "employer",
+					"scope": "public",
+					"path": "Enterprise",
+					"type": "Enterprise",
+					"kind": "relatedEntity"
+				}
+			]
+		},
+		{
+			"collectionName": "EnterpriseCollection",
+			"className": "Enterprise",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"type": "long",
+					"autosequence": "true",
+					"unique": "true",
+					"primKey": "true"
+				},
+				{
+					"name": "employeeCollection",
+					"scope": "public",
+					"reversePath": true,
+					"path": "employer",
+					"type": "EmployeeCollection",
+					"kind": "relatedEntities"
+				},
+				{
+					"name": "name",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "address",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "CA",
+					"scope": "public",
+					"type": "number",
+					"kind": "storage"
+				}
+			]
+		}
+	],
+	"type": []
+}
